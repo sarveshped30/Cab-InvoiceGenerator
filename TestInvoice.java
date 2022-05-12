@@ -21,5 +21,13 @@ public class TestInvoice {
         double result = invoice.farePrize(kilometers,minutes);
         Assert.assertEquals(5,result,0.0);
     }
+
+    @Test
+    public void GivenMultipleRidesShouldReturnTotalFare() {
+        Ride[] rides = { new Ride(2.4, 15),
+                         new Ride(0.2, 1) };
+        double result = invoice.totalFarePrize(rides);
+        Assert.assertEquals(44, result,0.0);
+    }
 }
 
