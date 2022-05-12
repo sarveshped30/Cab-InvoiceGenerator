@@ -23,11 +23,20 @@ public class TestInvoice {
     }
 
     @Test
-    public void GivenMultipleRidesShouldReturnTotalFare() {
+    public void GivenMultipleRidesShouldReturnTotalFarePrize() {
         Ride[] rides = { new Ride(2.4, 15),
                          new Ride(0.2, 1) };
         double result = invoice.totalFarePrize(rides);
         Assert.assertEquals(44, result,0.0);
+    }
+
+    @Test
+    public void GivenMultipleRidesShouldReturnInvoiceSummary() {
+        Ride[] rides = { new Ride(2.4, 15),
+                         new Ride(0.2, 1) };
+        InvoiceSummary summary = invoice.invoiceSummary(rides);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 44);
+        Assert.assertEquals(expectedInvoiceSummary, summary);
     }
 }
 
